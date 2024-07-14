@@ -1,25 +1,55 @@
-!function(A) {
-    "use strict";
-    function e(A, e, n) {
-        const o = function(A) {
-            return window.sessionStorage ? JSON.parse(window.sessionStorage.getItem(A + "Support")) : null
-        }(A);
-        if (null === o) {
-            const t = new Image;
-            return t.onload = t.onerror = function() {
-                n(A, 2 === t.height)
-            }
-            ,
-            void (t.src = e)
-        }
-        t(A, o)
+// JavaScript pour gérer le changement de fond (changement de chaîne)
+
+let channels = [
+    "videoVide",
+    "/assets/videos/channel-01.mp4",
+    "/assets/videos/channel-02.mp4",
+    "/assets/videos/channel-03.mp4",
+    "/assets/videos/channel-04.mp4",
+    "/assets/videos/channel-05.mp4",
+    "/assets/videos/channel-06.mp4",
+    "/assets/videos/channel-07.mp4",
+    "/assets/videos/channel-08.mp4"
+];
+
+// Déclaration et initialisation de la variable currentChannel
+let currentChannel = 0;
+const video = document.getElementById('videoBackground');
+video.volume = 0.01;
+
+// Exemple de fonction currentVideo() (à adapter selon votre logique)
+function currentVideo(index) {
+    return channels[index];
+};
+
+// Fonction pour changer la source de la vidéo
+function changeVideoSource(newSource) {
+    video.src = newSource;
+    video.load(); // Recharge la vidéo avec la nouvelle source
+};
+
+// Fonction pour changer de canal
+function changeChannelUp() {
+    // channel text modification
+    console.log('Next button clicked');
+    currentChannel = (currentChannel + 1) % (channels.length);
+    document.querySelector('.channel span').textContent = ("0" + (currentChannel)).slice(-2);
+    // update fond d'écran
+    changeVideoSource(currentVideo(currentChannel));
+};
+
+// Fonction pour changer de canal
+function changeChannelDown() {
+    // channel text modification
+    console.log('Previous button clicked');
+    currentChannel = (currentChannel - 1) % (channels.length);
+    if (currentChannel <= -1){
+        currentChannel = 8;
     }
-    function t(e, t) {
-        t && A.documentElement.classList.add(e),
-        window.sessionStorage.setItem(e + "Support", t)
-    }
-    e("webp", "data:image/webp;base64,UklGRi4AAABXRUJQVlA4TCEAAAAvAUAAEB8wAiMwAgSSNtse/cXjxyCCmrYNWPwmHRH9jwMA", t),
-    e("avif", "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUEAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAF0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgS0AAAAAABNjb2xybmNseAACAAIAAIAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAAGVtZGF0EgAKBzgAPtAgIAkyUBAAAPWc41TP///4gHBX9H8XVK7gGeDllq8TYARA+8Tfsv7L+zPE24eIoIzE0WhHbrqcrTK9VEgEG/hwgB5rdCbvP8g3KYPdV88CvPJnptgQ", t)
-}(document);
+    document.querySelector('.channel span').textContent = ("0" + (currentChannel)).slice(-2);
+    // update fond d'écran
+    changeVideoSource(currentVideo(currentChannel));
+};
+
 
 
