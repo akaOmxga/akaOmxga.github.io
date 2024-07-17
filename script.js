@@ -111,3 +111,6 @@ function initLangage(){
     // du bouton channel : 
     document.querySelector('.channel span').textContent = ("0" + (currentChannel)).slice(-2);
 }
+
+
+
