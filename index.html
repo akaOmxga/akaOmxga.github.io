@@ -24,10 +24,11 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            opacity: 1;
         }
         </style>
     </head>
-    <body class="cursor-default" channel = "0">
+    <body class="cursor-default" channel = "0" onload ="initLangage()"> 
         <div id="videoContainer">
             <video id="videoBackground" autoplay loop>
                 <source src="channel-01.mp4" type="video/mp4">
@@ -52,7 +53,7 @@
                                     </ul>
                                     <ul class="nav__menu">
                                         <li>
-                                            <a href="/assets/pdf/cv.pdf">Curriculum Vitae</a>
+                                            <a href="/cv.html">Curriculum Vitae</a>
                                         </li>
                                         <li>
                                             <a href="/projects/ProjPresentation.html">Projects</a>
@@ -66,26 +67,35 @@
                                         <button id="prevChannel" class="previous cursor-pointer svelte-zwh9ot" aria-label="previous channel" onclick="changeChannelDown()">◄</button>
                                         <div class="channel">CHANNEL <span>00</span></div> 
                                         <button id="nextChannel" class="next cursor-pointer svelte-zwh9ot" aria-label="next channel" onclick = "changeChannelUp()">►</button>
-                                        <script src="script.js"></script>
                                     </div> 
                                     <div class="lang-controller">
-                                        <div class="current-lang"><span>English</span></div> 
-                                        <button class="change-lang-button" aria-label="next-lang">►</button>
+                                        <div class="current-lang"><span>English Version</span></div> 
+                                        <button class="change-lang-button" id="langage-toggle" aria-label="next-lang" onclick = "switchLangage()">►</button>
                                     </div> 
                                 </div>
                             </div>
                         </header>
                         <div class="page-content" id="content" js-slot="content">
                             <article class="bio">
-                                <p class="big-text">
+                                <p class="en-big-text">
                                     <!-- rajouter des liens clickable marrant sur les mots cléf -->
                                     Hi! I'm Victor SIMON
-                                    , a second year engineering student in the <a href=" https://www.ec-nantes.fr/" target="_blank" rel="noopener noreferrer">Ecole Centrale</a>, France. <br>
+                                    , a second year engineering student in the <a href=" https://www.ec-nantes.fr/" target="_blank" rel="noopener noreferrer">Ecole Centrale</a>,  <a href="https://earthroulette.com/fr/countries/France" target="_blank" rel="noopener noreferrer">France</a>. <br>
                                     <br>
                                     I'm a very outgoing and curious person, who's passionate about <a href="https://leetcode.com/u/akaOmxga/" target="_blank" rel="noopener noreferrer">coding</a>
-                                    , music, video games, and sports. <br>
+                                    , <a href="https://www.youtube.com/watch?v=l4zkc7KEvYM" target="_blank" rel="noopener noreferrer">music</a>, <a href="https://fr.wikipedia.org/wiki/Minecraft" target="_blank" rel="noopener noreferrer">video games</a>, and <a href="https://www.youtube.com/watch?v=fbqHK8i-HdA" target="_blank" rel="noopener noreferrer">board sports</a>. <br> 
                                     <br>
-                                    If you have any question about my projects, my cursus or myself, feel free to reach me by <a href="mailto:victor.simon760@gmail.com">Email</a> or on my social media down bellow.
+                                    If you have any question about my <a href="/projects/ProjPresentation.html">Projects</a>, my cursus or myself, feel free to reach me by <a href="mailto:victor.simon760@gmail.com">Email</a> or on my social media down bellow.
+                                </p>
+                                <p class="fr-big-text" style="display: none;">
+                                    <!-- rajouter des liens clickable marrant sur les mots cléf -->
+                                    Bonjour ! Je suis Victor SIMON
+                                    , un élève-ingénieur de deuxième année à l'<a href=" https://www.ec-nantes.fr/" target="_blank" rel="noopener noreferrer">Ecole Centrale</a>, <a href="https://earthroulette.com/fr/countries/France" target="_blank" rel="noopener noreferrer">France</a>. <br>
+                                    <br>
+                                    Je suis une personne extravertie et curieuse, passionnée par  <a href="https://leetcode.com/u/akaOmxga/" target="_blank" rel="noopener noreferrer">l'informatique</a>
+                                    , <a href="https://www.youtube.com/watch?v=l4zkc7KEvYM" target="_blank" rel="noopener noreferrer">la musique</a>, <a href="https://fr.wikipedia.org/wiki/Minecraft" target="_blank" rel="noopener noreferrer">les jeux-vidéos</a>, et <a href="https://www.youtube.com/watch?v=fbqHK8i-HdA" target="_blank" rel="noopener noreferrer">les sports de glisse</a>. <br> 
+                                    <br>
+                                    Si vous avez une question à propos de mes <a href="/projects/ProjPresentation.html">projets</a>, de mon cursus ou encore de moi-même, n'hésitez pas à me joindre par <a href="mailto:victor.simon760@gmail.com">Email</a> ou sur mes réseaux sociaux juste en-dessous.
                                 </p>
                             </article>
                             <br>
@@ -105,7 +115,9 @@
                                 </a>
                             </div>  
                             <div class = "legal-mention">
-                                <p>&copy; 2024 VictorSIMON. All Rights Reserved.</p>
+                                <br>
+                                <p class ="en-legal-mention">&copy; 2024 VictorSIMON. All Rights Reserved.</p>
+                                <p class ="fr-legal-mention" style="display: none;">&copy; 2024 VictorSIMON. Tous Droits Réservés.</p>
                             </div> 
                         </footer>
                     </div>
@@ -114,6 +126,7 @@
         </div>
 
         <!-- DATE -->
+        <script src="script.js"></script>
         <script>
             document.querySelector(".js-header-date").innerHTML = new Intl.DateTimeFormat("en-US",{
                 month: "short",
