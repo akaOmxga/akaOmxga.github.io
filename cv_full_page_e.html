@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Victor SIMON</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+        }
+        .contact-info{
+            text-align: center;
+        }
+        .icon {
+            font-size: 24px;
+            margin-left: 20px; /* Espacement à gauche de chaque icône */
+            margin-right: 5px; /* Espacement à gauche de chaque icône */
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 1px;
+            font-size: 25px;
+        }
+        h3{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section p, .section ul {
+            margin: 0;
+        }
+        .section h3 {
+            margin-top: 10px;
+        }
+        .courses {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .courses ul {
+            list-style: none;
+            padding: 0;
+            width: 20%;
+        }
+        .courses ul li::before {
+            content: "• ";
+            color: black;
+            font-weight: bold;
+        }
+        .skills ul {
+            list-style: none;
+            padding: 0;
+        }
+        .skills ul li::before {
+            content: "• ";
+            color: black;
+            font-weight: bold;
+        }
+        .projects .project {
+            margin-bottom: 10px;
+        }
+        .projects .project p {
+            margin-left: 20px;
+        }
+        .projects strong {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="personnal header">
+            <div class="header">
+                <h1 style="font-size: 45px;">Victor SIMON</h1>
+            </div>
+            <div class="contact-info">
+                <!-- Icône de Localisation -->
+                <a href="https://www.google.fr/maps/place/%C3%89cole+Centrale+de+Nantes" target="_blank">
+                    <i class="fas fa-map-marker-alt icon" aria-hidden="true"></i>
+                    Nantes - France
+                </a>
+        
+                <!-- Icône de Téléphone -->
+                <a href="tel:+33768229860">
+                    <i class="fas fa-phone icon" aria-hidden="true"></i>
+                    +33 07 68 22 98 60
+                </a>
+        
+                <!-- Icône de la boîte mail -->
+                <a href="mailto:victor.simon760@gmail.com">
+                    <i class="fas fa-envelope icon"></i>
+                    victor.simon760@gmail.com
+                </a>
+        
+                <!-- Icône LinkedIn -->
+                <a href="https://www.linkedin.com/in/victor-simon-167a21301/">
+                    <i class="fab fa-linkedin icon"></i>
+                    LinkedIn
+                </a>
+        
+                <!-- Icône GitHub -->
+                <a href="https://github.com/akaOmxga" target="_blank">
+                    <i class="fab fa-github icon" aria-hidden="true"></i>
+                    GitHub
+                </a>
+            </div>
+        </div>
+        <div class="section">
+<!-- EDUCATION -->
+            <h2>Education</h2>
+            <p><strong><em>Ecole Centrale, Nantes, France</em></strong> <span style="float: right;"><em>2023-2026</em></span></p>
+            <p style="display: block; text-indent: 0px;"><em>Master of Engineering and Science in Computer Science</em></p>
+            <h3>Relevant Courses</h3>
+            <div class="courses">
+                <ul>
+                    <li>Data Structures and Algorithms</li>
+                    <li>Discrete Mathematics</li>
+                </ul>
+                <ul>
+                    <li>Software Engineering</li>
+                    <li>Data Analysis</li>
+                </ul>
+                <ul>
+                    <li>Cybersecurity</li>
+                    <li>Object-oriented Programming</li>
+                </ul>
+                <ul>
+                    <li>Web and Mobile Development </li>
+                    <li>System and Networks</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+<!-- TECHNICAL SKILLS -->
+            <h2>Technical Skills</h2>
+            <div class="skills">
+                <ul>
+                    <li><strong>Languages:</strong> Python, Java, C++, HTML/CSS, JavaScript, SQL</li>
+                    <li><strong>Tools:</strong> MATLAB, Google Cloud Platform, Android Studio</li>
+                    <li><strong>Technologies/Frameworks:</strong> Linux, VSCode, GitHub, WordPress</li>
+                </ul>
+            </div>
+        </div>
+        <div class="section projects">
+<!-- PROJECTS -->
+            <h2>Projects</h2>
+            <div class="project">
+                <strong>Solar System Simulation</strong> <span style="float: right;"><em>Dec 2021 - Mars 2022</em></span>
+                <p>Numerical Resolution of the N-Body Problem with Barnes-Hut Algorithm and Simulation of the Deviation of Asteroids.</p>
+                <p>• Octree and Barnes-Hut Algorithm</p>
+                <p>• Physical model of the deflection of a near-Earth asteroid </p>
+            </div>
+            <div class="project">
+                <strong>FL-AI-PPY Bird</strong> <span style="float: right;"><em>Jun - Aug 2024</em></span>
+                <p>A Neural Network Built From Scratch Learn with Genetic Evolution Methods To Play My Own Version Of The Famous Game Flappy Bird.</p>
+                <p>• Object-oriented Programming and Deep Learning</p>
+                <p>• Recreate the Famous Game : Flappy Bird</p>
+            </div>
+            <div class="project">
+                <strong>Trafic Jam Study</strong> <span style="float: right;"><em>Nov 2022 - May 2023</em></span>
+                <p>By Simulating and Statistically Analysing A Road Network, we Observe the Braess' Paradox.</p>
+                <p>• Intricate Project involving Statistics, Physics and Computer Science</p>
+                <p>• Relevant Result which correlates with the Braess' Paradox</p>
+            </div>
+            <div class="project">
+                <strong><a href = https://akaomxga.github.io/ target="_blank" rel="noopener noreferrer" >Portofolio Website</a></strong> <span style="float: right;"><em>Jan - Mar 2024</em></span>
+                <p>Describe my projects, find source code, and more ...</p>
+                <p>• Build in HTML/CSS and JavaScript</p>
+                <p>• Hosted with GithubPages</p>
+            </div>
+        </div>
+        <div class="section">
+<!-- EXPERIENCE -->
+            <h2>Experience</h2>
+            <h3>Tutored teaching of students in Preparatory Classes</h3>
+            <p><span style="float: right;"><em>Sep 2023 - Present</em></span></p>
+            <ul>
+                <li>Teaching Mathematics, Computer Science and Physics concepts to Preparatory Classes Student at Clémenceau and Nelson Mandela Highschool, Nantes, France</li>
+                <li>On a weekly basis : creating lessons plans, solving exercises to help them understand theoritical concepts</li>
+                <li>Provide mentorship to students through developing individualized relationships outside of instruction time</li>
+            </ul>
+            <h3>Internship in an Insurance Firm, GAN Insurance, France</h3>
+            <p><span style="float: right;"><em>Jul - Aug 2021</em></span></p>
+            <ul>
+                <li>Customer reception, Quote preparation, Mail management</li>
+                <li>Customer meetings and canvassing potential customers</li>
+            </ul>
+            <h3>Worker Internship in an Aquapark, BEFUN Aquapark, France</h3>
+            <p><span style="float: right;"><em>Jun - Jul 2024</em></span></p>
+            <ul>
+                <li>Installation and Opening of the Aquapark during 2 weeks</li>
+                <li>Customer reception, Ensuring security on the park, daily opening and closing </li>
+            </ul>
+        </div>
+        <div class="section">
+<!-- EXTRACURRICULAR -->
+            <h2>Extracurricular</h2>
+            <h3>Learning new language</h3>
+            <p><span style="float: right;"><em>Sep 2023 - Present</em></span></p>
+            <p>Japanese and Italian Courses for 1 years, English Toeic Validation 955/990 C1 level</p>
+            <h3>member of the Junior Enterprise of the Ecole Centrale</h3>
+            <p><span style="float: right;"><em>Oct 2023 - Present</em></span></p>
+            <p>make the link between companies and students, follow studies carried out by students, manage the administrative and legal aspects</p>
+            <h3>Vice-president of the Ecole Centrale Ski Club</h3>
+            <p><span style="float: right;"><em>Fev 2024 - Present</em></span></p>
+            <p>Organized promotional events, organized a week of skiing for hundreds of students, managed a budget</p>
+            
+        </div>
+    </div>
+</body>
+</html>
