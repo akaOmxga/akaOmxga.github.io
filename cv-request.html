@@ -177,16 +177,10 @@
             font-size: clamp(14px, 1.8vw, 18px);
         }
 
-        /* Override narrow container width from styles.css */
+        /* Make overlay full-screen on desktop */
         .page-container {
-            width: 90% !important;
-            max-width: 1200px !important;
-        }
-
-        @media (min-width: 768px) {
-            .page-container {
-                width: 85% !important;
-            }
+            width: 100% !important;
+            max-width: none !important;
         }
     </style>
 </head>
