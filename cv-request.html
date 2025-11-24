@@ -177,8 +177,29 @@
             font-size: clamp(14px, 1.8vw, 18px);
         }
 
-        /* Make overlay full-screen on desktop */
+        /* Force full-screen width on all containers */
         .page-container {
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 !important;
+        }
+
+        .tv {
+            width: 100% !important;
+            max-width: none !important;
+        }
+
+        .tv-screen {
+            width: 100% !important;
+            max-width: none !important;
+        }
+
+        .tv-content {
+            width: 100% !important;
+            max-width: none !important;
+        }
+
+        .page-content {
             width: 100% !important;
             max-width: none !important;
         }
