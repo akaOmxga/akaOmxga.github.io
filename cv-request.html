@@ -206,11 +206,25 @@
 
         /* Add margins for header and footer elements */
         .header__container {
-            padding: 0 180px !important;
+            padding: 0 20px !important;
+        }
+
+        /* Larger margins on desktop */
+        @media (min-width: 768px) {
+            .header__container {
+                padding: 0 180px !important;
+            }
         }
 
         .footer {
             padding: 0 20px 20px 20px !important;
+        }
+
+        /* Larger margins on desktop for footer */
+        @media (min-width: 768px) {
+            .footer {
+                padding: 0 180px 20px 180px !important;
+            }
         }
 
         .legal-mention {
