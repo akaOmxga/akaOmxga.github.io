@@ -1,0 +1,10 @@
+name = "cv-request-worker"
+main = "worker.js"
+compatibility_date = "2024-11-24"
+
+# KV namespace for rate limiting
+# You'll need to create this KV namespace in Cloudflare dashboard
+# and update the id after creation
+[[kv_namespaces]]
+binding = "CV_REQUESTS"
+id = "bdeb937f89504d92bed027e2d45c5484"

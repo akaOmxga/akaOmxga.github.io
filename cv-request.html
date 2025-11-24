@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <title>Request CV - Victor's Portfolio</title>
+    <style>
+        #videoContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        #videoBackground {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+
+        .cv-request-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .form-container {
+            border: 2px solid #a0a0a0;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        .form-title {
+            font-size: clamp(28px, 5vw, 48px);
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .form-description {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: clamp(14px, 2vw, 20px);
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: clamp(14px, 1.8vw, 18px);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid #a0a0a0;
+            color: #fff;
+            font-family: 'VCR OSD Mono', monospace;
+            font-size: clamp(14px, 1.6vw, 18px);
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #fff;
+        }
+
+        .form-input.error {
+            border-color: #ff0000;
+        }
+
+        .error-message {
+            color: #ff0000;
+            font-size: clamp(12px, 1.4vw, 16px);
+            margin-top: 8px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+            font-family: 'VCR OSD Mono', monospace;
+            font-size: clamp(16px, 2vw, 22px);
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .submit-btn.loading::after {
+            content: "...";
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+
+        @keyframes dots {
+
+            0%,
+            20% {
+                content: ".";
+            }
+
+            40% {
+                content: "..";
+            }
+
+            60%,
+            100% {
+                content: "...";
+            }
+        }
+
+        .status-message {
+            margin-top: 20px;
+            padding: 15px;
+            text-align: center;
+            font-size: clamp(14px, 1.6vw, 18px);
+            display: none;
+            border: 2px solid;
+        }
+
+        .status-message.success {
+            display: block;
+            border-color: #00ff00;
+            color: #00ff00;
+            background-color: rgba(0, 255, 0, 0.1);
+        }
+
+        .status-message.error {
+            display: block;
+            border-color: #ff0000;
+            color: #ff0000;
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-size: clamp(14px, 1.8vw, 18px);
+        }
+
+        /* Override narrow container width from styles.css */
+        .page-container {
+            width: 90% !important;
+            max-width: 1200px !important;
+        }
+
+        @media (min-width: 768px) {
+            .page-container {
+                width: 85% !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="cursor-default" channel="0" onload="initLangage()">
+    <div id="videoContainer">
+        <video id="videoBackground" autoplay loop muted>
+            <source src="channel-01.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="tv js-tv">
+        <div class="tv-screen js-screen">
+            <div class="tv-effects">
+                <div class="tv-effect --decontrast"></div>
+                <div class="tv-effect --static"></div>
+                <div class="tv-effect --artifacts"></div>
+                <div class="tv-effect --vignette"></div>
+                <div class="tv-effect --crt"></div>
+            </div>
+            <div class="tv-content js-content">
+                <div class="page-container glitchy-text">
+                    <header class="header">
+                        <div class="header__container">
+                            <nav class="nav" js-slot="nav">
+                                <ul class="nav__breadcrumb">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li>CV Request</li>
+                                </ul>
+                            </nav>
+                            <div class="header__info">
+                                <div class="js-header-date">JUL 2, 1993</div>
+                                <div class="js-header-controls"></div>
+                                <div class="channel-controller svelte-zwh9ot">
+                                    <button id="prevChannel" class="previous cursor-pointer svelte-zwh9ot"
+                                        aria-label="previous channel" onclick="changeChannelDown()">◄</button>
+                                    <div class="channel">CHANNEL <span>00</span></div>
+                                    <button id="nextChannel" class="next cursor-pointer svelte-zwh9ot"
+                                        aria-label="next channel" onclick="changeChannelUp()">►</button>
+                                </div>
+                                <div class="lang-controller">
+                                    <div class="current-lang"><span>English Version</span></div>
+                                    <button class="change-lang-button" id="langage-toggle" aria-label="next-lang"
+                                        onclick="switchLangage()">►</button>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="page-content" id="content" js-slot="content">
+                        <!-- English Version -->
+                        <div class="en-cv-request cv-request-form">
+                            <div class="form-container">
+                                <h1 class="form-title">Request CV</h1>
+                                <p class="form-description">
+                                    Enter your email address below to receive Victor SIMON's CV directly in your inbox.
+                                </p>
+
+                                <form id="cvRequestForm">
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" id="email" name="email" class="form-input"
+                                            placeholder="your.email@example.com" required autocomplete="email">
+                                        <div class="error-message" id="emailError">Please enter a valid email address
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="submit-btn" id="submitBtn">
+                                        Send CV
+                                    </button>
+                                </form>
+
+                                <div class="status-message" id="statusMessage"></div>
+
+                                <a href="index.html" class="back-link">◄ Back to Home</a>
+                            </div>
+                        </div>
+
+                        <!-- French Version -->
+                        <div class="fr-cv-request cv-request-form" style="display: none;">
+                            <div class="form-container">
+                                <h1 class="form-title">Demande de CV</h1>
+                                <p class="form-description">
+                                    Entrez votre adresse e-mail ci-dessous pour recevoir le CV de Victor SIMON
+                                    directement dans votre boîte mail.
+                                </p>
+
+                                <form id="cvRequestFormFr">
+                                    <div class="form-group">
+                                        <label for="emailFr" class="form-label">Adresse E-mail</label>
+                                        <input type="email" id="emailFr" name="email" class="form-input"
+                                            placeholder="votre.email@exemple.fr" required autocomplete="email">
+                                        <div class="error-message" id="emailErrorFr">Veuillez entrer une adresse e-mail
+                                            valide</div>
+                                    </div>
+
+                                    <button type="submit" class="submit-btn" id="submitBtnFr">
+                                        Envoyer le CV
+                                    </button>
+                                </form>
+
+                                <div class="status-message" id="statusMessageFr"></div>
+
+                                <a href="index.html" class="back-link">◄ Retour à l'accueil</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="footer" id="footer">
+                        <div class="legal-mention">
+                            <p class="en-legal-mention">&copy; 2024 VictorSIMON. All Rights Reserved.</p>
+                            <p class="fr-legal-mention" style="display: none;">&copy; 2024 VictorSIMON. Tous Droits
+                                Réservés.</p>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DATE -->
+    <script src="script.js"></script>
+    <script src="cv-request.js"></script>
+    <script>
+        document.querySelector(".js-header-date").innerHTML = new Intl.DateTimeFormat("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+        }).format(new Date);
+    </script>
+</body>
+
+</html>
