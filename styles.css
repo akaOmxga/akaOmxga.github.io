@@ -1290,3 +1290,277 @@ body.hide-content button.svelte-6brq6f {
     margin-bottom: 40px;
 }
 
+
+
+/* ============================================
+   RESPONSIVE — Tablet & Mobile
+   ============================================ */
+
+/* Global: prevent horizontal scroll on small screens */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Tablet and below (≤1024px) : widen container, reduce container side-margins */
+@media (max-width: 1024px) {
+    :root {
+        --container-width: 90%;
+    }
+    .page-container {
+        width: 90%;
+    }
+}
+
+/* Tablet / large phone (≤768px) */
+@media (max-width: 768px) {
+    :root {
+        --container-width: 92%;
+    }
+    .page-container {
+        width: 92%;
+    }
+
+    /* Header: collapse height, reduce sticky offset */
+    .header {
+        height: auto;
+        min-height: 180px;
+        margin-bottom: 1rem;
+    }
+    .header__container {
+        top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    /* Header info: stack vertically, left-aligned */
+    .header__info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+        text-align: left;
+        width: 100%;
+    }
+
+    /* Hide decorative date on mobile */
+    .js-header-date {
+        display: none;
+    }
+
+    /* Channel + language controllers: free widths, left-aligned */
+    .channel-controller.svelte-zwh9ot {
+        width: auto;
+        justify-content: flex-start;
+        gap: 12px;
+    }
+    .lang-controller {
+        width: auto;
+        justify-content: flex-start;
+    }
+    .current-lang span {
+        margin-right: 12px;
+    }
+
+    /* Hide link tooltips (a:after with href) — they overflow on touch devices */
+    .button-text[href^=http]:after,
+    .button-text[href^=mailto]:after,
+    a[href^=http]:after,
+    a[href^=mailto]:after {
+        display: none !important;
+    }
+}
+
+/* Small phone (≤600px) : stack nav menu vertically, bigger tap targets */
+@media (max-width: 600px) {
+    .nav__menu {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0;
+        list-style: none;
+    }
+    .nav__menu li {
+        margin-top: 0;
+    }
+    .nav__menu a,
+    .nav__breadcrumb a {
+        display: inline-block;
+        padding: 6px 0;
+        min-height: 32px;
+    }
+
+    /* Nav breadcrumb still horizontal (only 1-2 items usually) */
+    .nav__breadcrumb {
+        flex-wrap: wrap;
+    }
+}
+
+/* Footer: flow-normal legal mention (remove absolute positioning everywhere) */
+.footer {
+    white-space: normal;
+}
+.footer .legal-mention {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Mobile portrait (≤480px) : tighter footer cards, smaller project gap */
+@media (max-width: 480px) {
+    .card {
+        gap: 12px;
+        padding: 15px 10px;
+        flex-wrap: wrap;
+    }
+    .socialContainer {
+        scale: 1;
+        width: 48px;
+        height: 48px;
+    }
+
+    .project-list {
+        gap: 2rem;
+    }
+
+    /* Slightly smaller controller font */
+    .channel-controller.svelte-zwh9ot,
+    .lang-controller,
+    button.svelte-zwh9ot,
+    .change-lang-button {
+        font-size: 0.8rem;
+    }
+
+    /* Footer padding reduction */
+    .footer {
+        padding-bottom: 20px;
+    }
+
+    /* Container takes almost full width */
+    :root {
+        --container-width: 94%;
+    }
+    .page-container {
+        width: 94%;
+    }
+}
+
+
+/* ============================================
+   RESPONSIVE — Project pages & inline-style fixes
+   ============================================ */
+
+/* Project page video containers must scale */
+.project-video-container {
+    max-width: 100%;
+}
+.project-video-container video,
+.project-video-container iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    /* Override inline `style="font-size: 70px"` and 40px on project titles */
+    .project-title[style*="font-size: 70px"] {
+        font-size: clamp(32px, 7vw, 70px) !important;
+    }
+    .project-title[style*="font-size: 40px"] {
+        font-size: clamp(22px, 5vw, 40px) !important;
+    }
+
+    /* Reduce aggressive text-indent on paragraphs */
+    p[style*="text-indent: 50px"],
+    small[style*="text-indent: 50px"] {
+        text-indent: 16px !important;
+    }
+
+    /* Project sommaire list */
+    .sommaire ol li {
+        font-size: clamp(14px, 2.5vw, 18px);
+    }
+
+    /* Video container margin smaller */
+    .video-container {
+        margin: 10px 0;
+    }
+    .video-title {
+        font-size: clamp(18px, 3.5vw, 24px);
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    p[style*="text-indent: 50px"],
+    small[style*="text-indent: 50px"] {
+        text-indent: 8px !important;
+    }
+}
+
+
+/* ============================================
+   RESPONSIVE — Typography refinements (small screens)
+   ============================================ */
+
+/* Prevent any long content from overflowing */
+.bio,
+.en-big-text,
+.fr-big-text,
+.project-list a,
+.project-list small,
+.nav__breadcrumb,
+.nav__menu {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* On small screens, shrink the big-text minimum to fit narrow viewports */
+@media (max-width: 480px) {
+    :root {
+        --font-size-primary: clamp(14px, 3.6vw, 18px);
+        --font-size-secondary: clamp(18px, 5vw, 26px);
+    }
+    html {
+        font-size: clamp(14px, 3.6vw, 18px);
+    }
+    .en-big-text, .fr-big-text {
+        font-size: clamp(18px, 5vw, 26px);
+        line-height: 1.35;
+    }
+    .project-list a {
+        font-size: clamp(20px, 5.5vw, 30px);
+    }
+    .project-list small {
+        font-size: clamp(13px, 3.2vw, 16px);
+    }
+    /* Footer legal stays readable without overflow */
+    .legal-mention p {
+        font-size: clamp(11px, 2.8vw, 14px);
+        word-break: break-word;
+        white-space: normal;
+    }
+    /* Nav breadcrumb & menu shrink slightly */
+    .nav__breadcrumb,
+    .nav__menu {
+        font-size: clamp(13px, 3.4vw, 16px);
+    }
+    /* Channel / language controllers stay tight */
+    .channel-controller .channel {
+        font-size: 0.8rem;
+    }
+}
+
+/* Between 480px and 768px: gentler scaling */
+@media (min-width: 481px) and (max-width: 768px) {
+    .en-big-text, .fr-big-text {
+        font-size: clamp(22px, 4.5vw, 36px);
+        line-height: 1.4;
+    }
+}

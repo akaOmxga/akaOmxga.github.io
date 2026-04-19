@@ -140,6 +140,75 @@
         .sommaire .date {
             font-size: 20px;
         }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 1024px) {
+            .sommaire .container {
+                width: 92%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sommaire .container {
+                width: 94%;
+                padding: 12px;
+            }
+            .sommaire h2 {
+                font-size: clamp(26px, 5.5vw, 50px);
+                margin-top: 20px;
+            }
+            .sommaire h3 {
+                font-size: clamp(16px, 2.8vw, 20px);
+            }
+            .sommaire .section p,
+            .section ul {
+                font-size: clamp(14px, 2.4vw, 20px);
+            }
+            .sommaire .icon {
+                margin-left: 10px;
+                font-size: 20px;
+            }
+            .sommaire .courses {
+                gap: 1rem;
+            }
+            .sommaire .courses ul {
+                width: 45%;
+            }
+            .sommaire .projects strong {
+                font-size: clamp(18px, 3vw, 25px);
+            }
+            .sommaire .projects .project p {
+                margin-left: 10px;
+            }
+            .sommaire .date {
+                font-size: clamp(14px, 2.4vw, 20px);
+            }
+            .sommaire .ph_cv {
+                margin-bottom: 40px;
+            }
+            /* CV title link */
+            .project-title[href$=".pdf"] {
+                font-size: clamp(28px, 6vw, 70px) !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sommaire .container {
+                width: 96%;
+                padding: 8px;
+            }
+            .sommaire .courses ul {
+                width: 100%;
+            }
+            .sommaire .icon {
+                margin-left: 6px;
+                font-size: 18px;
+            }
+            .sommaire .contact-info {
+                font-size: 14px;
+                word-break: break-word;
+            }
+        }
     </style>
 </head>
 

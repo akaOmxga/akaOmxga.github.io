@@ -80,6 +80,64 @@
             font-family: 'Times New Roman', Times, serif;
             font-size: 20px;
         }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 1024px) {
+            .container {
+                width: 92%;
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                width: 94%;
+                padding: 12px;
+            }
+            .header h1 {
+                font-size: clamp(28px, 6vw, 45px) !important;
+            }
+            h2 {
+                font-size: clamp(20px, 4vw, 25px);
+            }
+            h3 {
+                font-size: clamp(16px, 2.8vw, 20px);
+            }
+            .icon {
+                margin-left: 10px;
+                font-size: 20px;
+            }
+            .contact-info {
+                font-size: 14px;
+                word-break: break-word;
+            }
+            .courses ul {
+                width: 45%;
+            }
+            .projects strong {
+                font-size: clamp(16px, 3vw, 20px);
+            }
+            .projects .project p {
+                margin-left: 10px;
+            }
+            /* Right-floated dates wrap below title on mobile */
+            .projects .project span[style*="float: right"],
+            span[style*="float: right"] {
+                float: none !important;
+                display: block;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                width: 96%;
+                padding: 8px;
+            }
+            .courses ul {
+                width: 100%;
+            }
+            .icon {
+                margin-left: 6px;
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 <body>
